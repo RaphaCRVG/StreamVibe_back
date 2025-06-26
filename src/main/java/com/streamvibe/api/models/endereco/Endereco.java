@@ -1,13 +1,16 @@
 package com.streamvibe.api.models.endereco;
 
+import jakarta.persistence.Embeddable;
 import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Embeddable
 
 public class Endereco {
+    
     private int id;
     private String rua;
     private String numero;

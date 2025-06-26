@@ -1,20 +1,32 @@
 package com.streamvibe.api.models.filme;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 
 public class Filme {
-    
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
     private String estudio;
     private double duracao;
     private String imagem;
+
+    @Enumerated(EnumType.STRING)
     private String genero;
+    
     private String diretor;
     private String elenco;
     private String sinopse;

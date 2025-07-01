@@ -1,11 +1,7 @@
 package com.streamvibe.api.models.filme;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -25,11 +21,13 @@ public class Filme {
     private String imagem;
 
     @Enumerated(EnumType.STRING)
-    private String genero;
+    private Genero genero;
     
     private String diretor;
     private String elenco;
     private String sinopse;
+
+    private Boolean ativo = true;
 
     public Filme(DadosCadastroFilme dados) {
         this.nome = dados.nome();
@@ -41,5 +39,9 @@ public class Filme {
         this.elenco = dados.elenco();
         this.sinopse = dados.sinopse();
         
+    }
+
+    public void exclusaoLogica() {
+        this.ativo = false;
     }
 }
